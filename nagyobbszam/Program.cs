@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace nagyobbszam
 {
@@ -6,29 +8,28 @@ namespace nagyobbszam
     {
         static void Main(string[] args)
         {
-            Fb();
+            Fbc();
         }
 
-        static string Fa(int a, int b)
+        static int Fac(List<int> szamok)
         {
-            if (a > b)
-            {
-                return "a";
-            }
-            else
-            {
-                return "b";
-            }
+            return szamok.Max();
         }
 
-        static void Fb()
+        static void Fbc()
         {
-            Console.Write("b)\na = ");
-            int a = int.Parse(Console.ReadLine());
-            Console.Write("b = ");
-            int b = int.Parse(Console.ReadLine());
-            string m = Fa(a, b);
-            Console.WriteLine($"A nagyobb szám a(z) {m}");
+            List<int> list = new List<int>();
+            Console.WriteLine("c) sorold fel a számokat, ha végeztél, nyomj 0-t");
+            int item = int.Parse(Console.ReadLine());
+            list.Add(item);
+            while (item != 0)
+            {
+                item = int.Parse(Console.ReadLine());
+                list.Add(item);
+            }
+
+            int max = Fac(list);
+            Console.WriteLine($"A lista legnagyobb száma: {max}");
         }
     }
 }
