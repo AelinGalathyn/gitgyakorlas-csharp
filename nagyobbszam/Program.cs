@@ -11,9 +11,10 @@ namespace nagyobbszam
             Fbc();
         }
 
-        static int Fac(List<int> szamok)
+        static int[] Fac(List<int> szamok)
         {
-            return szamok.Max();
+            int[] ints = new int[] { szamok.Min(), szamok.Max() };
+            return ints;
         }
 
         static void Fbc()
@@ -24,12 +25,12 @@ namespace nagyobbszam
             list.Add(item);
             while (item != 0)
             {
-                item = int.Parse(Console.ReadLine());
                 list.Add(item);
+                item = int.Parse(Console.ReadLine());
             }
 
-            int max = Fac(list);
-            Console.WriteLine($"A lista legnagyobb száma: {max}");
+            int[] max = Fac(list);
+            Console.WriteLine($"A lista legnagyobb száma: {max[1]}\nA lista legkisebb száma: {max[0]}");
         }
     }
 }
